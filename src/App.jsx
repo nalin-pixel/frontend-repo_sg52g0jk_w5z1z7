@@ -1,26 +1,22 @@
 import { useState } from 'react'
+import Navbar from './components/Navbar'
+import Hero from './components/Hero'
+import ProductGrid from './components/ProductGrid'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [query, setQuery] = useState('')
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
+    <div className="min-h-screen bg-neutral-50">
+      <Navbar onSearch={setQuery} />
+      <Hero />
+      <ProductGrid query={query} />
+
+      <footer className="mt-20 border-t border-black/5">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 text-sm text-gray-500">
+          <p>Built with love and motion. Not affiliated with Amazon.</p>
         </div>
-      </div>
+      </footer>
     </div>
   )
 }
